@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TechSoft Savings Bank</title>
+    <style>
+        body { font-family: sans-serif; display: flex; justify-content: center; padding: 50px; background: #f4f4f9; }
+        .card { background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); width: 350px; }
+        h2 { color: #333; }
+        .balance-box { font-size: 1.5rem; font-weight: bold; color: #2ecc71; margin: 20px 0; }
+        input { width: 90%; padding: 10px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 5px; }
+        button { width: 100%; padding: 10px; margin: 5px 0; border: none; border-radius: 5px; cursor: pointer; color: white; }
+        .btn-deposit { background: #2ecc71; }
+        .btn-withdraw { background: #e74c3c; }
+        #message { margin-top: 15px; font-size: 0.9rem; color: #666; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Savings Account</h2>
+        <div class="balance-box">Balance: $<span id="balance">0</span></div>
+        
+        <input type="number" id="amount" placeholder="Enter amount">
+        <button class="btn-deposit" onclick="transaction('deposit')">Deposit</button>
+        <button class="btn-withdraw" onclick="transaction('withdraw')">Withdraw</button>
+        
+        <div id="message"></div>
+    </div>
+
+    <script>
+        async function updateBalance() {
+            const res = await fetch('/api/account/balance');
+            const data = await res.json();
+            document.getElementById('balance').innerText = data.currentBalance;
+        }
+
+        async function transaction(type) {
+            const amount = parseFloat(document.getElementById('amount').value);
+            const msgDiv = document.getElementById('message');
+            
+            const res = await fetch(`/api/account/${type}`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ amount })
+            });
+
+            const data = await res.json();
+            if (data.status === "Success") {
+                msgDiv.style.color = "green";
+                msgDiv.innerText = data.message;
+                updateBalance();
+            } else {
+                msgDiv.style.color = "red";
+                msgDiv.innerText = data.message;
+            }
+        }
+        updateBalance();
+    </script>
+</body>
+</html>
