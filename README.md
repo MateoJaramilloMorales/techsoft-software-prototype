@@ -50,3 +50,18 @@ Acceder a la Interfaz: Abre http://localhost:3000 en tu navegador.
 
 👨‍💻 Autor
 Mateo Jaramillo Morales TechSoft - 2026
+
+
+
+Backend Sólido: Una API en Node.js con Express estructurada en controladores y servicios.
+
+Lógica de Negocio: Validaciones de saldo y depósitos positivos implementadas.
+
+Interfaz Gráfica: Un panel web funcional en public/index.html.
+
+Control de Versiones: Uso correcto de Git con historial de cambios.
+
+Documentación: Un manual de uso claro y bien formateado.
+
+
+https://github.com/MateoJaramilloMorales/techsoft-software-prototype
