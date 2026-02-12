@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>TechSoft Savings Bank</title>
+    <title>TechSoft Bank</title>
     <style>
         body { font-family: sans-serif; display: flex; justify-content: center; padding: 50px; background: #f4f4f9; }
         .card { background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); width: 350px; }
@@ -17,12 +17,12 @@
 </head>
 <body>
     <div class="card">
-        <h2>Savings Account</h2>
+        <h2>Cuenta de Ahorros</h2>
         <div class="balance-box">Balance: $<span id="balance">0</span></div>
         
-        <input type="number" id="amount" placeholder="Enter amount">
-        <button class="btn-deposit" onclick="transaction('deposit')">Deposit</button>
-        <button class="btn-withdraw" onclick="transaction('withdraw')">Withdraw</button>
+        <input type="number" id="amount" placeholder="Entrar valor">
+        <button class="btn-deposit" onclick="transaction('deposit')">Depositar</button>
+        <button class="btn-withdraw" onclick="transaction('withdraw')">Retirar</button>
         
         <div id="message"></div>
     </div>
