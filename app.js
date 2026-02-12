@@ -30,9 +30,9 @@ app.post('/api/account/withdraw', handleWithdraw);
 // --- Server Startup ---
 app.listen(PORT, () => {
     console.log('==============================================');
-    console.log(`🚀 TechSoft Bank System is running!`);
-    console.log(`🏠 Interface: http://localhost:${PORT}`);
-    console.log(`📊 API Balance: http://localhost:${PORT}/api/account/balance`);
+    console.log(`TechSoft Bank System is running!`);
+    console.log(`Interface: http://localhost:${PORT}`);
+    console.log(`API Balance: http://localhost:${PORT}/api/account/balance`);
     console.log('==============================================');
 });
 
